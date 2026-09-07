@@ -14,7 +14,9 @@ from models import AugmentedCNN
 
 OUTPUT_DIR = "outputs"
 BATCH_SIZE = 64
-EPOCHS = 20
+# Reducido desde 20: sobre CPU, con el dataset duplicado por el augmentation,
+# 20 épocas es poco práctico. Con GPU, sube este valor para mejor accuracy.
+EPOCHS = 6
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 
 TRANSFORM_TRAIN = transforms.Compose([
